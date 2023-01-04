@@ -10,15 +10,15 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item active  ">
-        <a class="nav-link" href="./dashboard.html">
+        <a class="nav-link" href="{{ url('dashboard') }}">
           <i class="material-icons">dashboard</i>
           <p>Dashboard</p>
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="./user.html">
-          <i class="material-icons">person</i>
-          <p>User Profile</p>
+        <a class="nav-link" href="{{ url('categories') }}">
+          <i class="material-icons">category</i>
+          <p>Categories</p>
         </a>
       </li>
       <li class="nav-item ">
