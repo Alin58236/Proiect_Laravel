@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Frontend\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,13 @@ use App\Http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[FrontendController::class , 'index']);
+Route::get('category',[FrontendController::class , 'category']);
+
 
 Auth::routes();
 
-Route::get('/home', [ProductController::class, 'index']);
+Route::get('/home', [FrontendController::class, 'index']);
 
 
 
