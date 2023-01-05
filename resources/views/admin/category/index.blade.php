@@ -3,7 +3,7 @@
 
 @section('content')
 
-<a href ="{{url('add-category')}}" style="hover:pointer;"><button class="btn btn-block">+ Add category</button></a>
+<a href ="{{url('add-category')}}" style="hover:pointer;"><button class="btn btn-block">+ Add Category</button></a>
 
     <div class="card">
         <div class="card-header">
@@ -32,7 +32,7 @@
                                <img src="{{asset('assets/uploads/category/'.$item->image)}}" class="w-25" alt="Image here">
                             </td>
                             <td>
-                                <a href="{{url('edit-prod/'.$item->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{url('edit-category/'.$item->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', );
+Route::get('/home', [ProductController::class, 'index']);
 
 
 
@@ -28,15 +29,14 @@ Route::get('/home', );
         Route::get('/dashboard','App\Http\Controllers\Admin\FrontendController@index');
 
         Route::get('categories','App\Http\Controllers\Admin\CategoryController@index');
-
         Route::get('add-category','App\Http\Controllers\Admin\CategoryController@add');
-
         Route::post('insert-category','App\Http\Controllers\Admin\CategoryController@insert');
-
-        Route::get('edit-prod/{id}', [CategoryController::class, 'edit']); 
-
+        Route::get('edit-category/{id}', [CategoryController::class, 'edit']); 
         Route::put('update-category/{id}',[CategoryController::class, 'update']);
-
         Route::get('delete-category/{id}',[CategoryController::class, 'destroy']);
+
+        Route::get('products', [ProductController::class, 'index']);
+        Route::get('add-product', [ProductController::class, 'add']);
+        Route::post('insert-product', [ProductController::class, 'insert']);
  });
 
