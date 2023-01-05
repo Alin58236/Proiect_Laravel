@@ -89,4 +89,17 @@ class ProductController extends Controller
         $products->update();
         return redirect('products')->with('status',"Product updated succesfully");
     }
+
+
+    public function destroy($id){
+        
+        $products = Product::find($id);
+
+        $path = 'assets/uploads/products/'.$products->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $products->delete();
+        return redirect('products')->with('status',"Product deleted successfully");
+    }
 }
