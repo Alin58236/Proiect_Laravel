@@ -28,6 +28,7 @@ Route::get('/home', [ProductController::class, 'index']);
  Route::middleware(['auth', 'isAdmin'])->group(function(){
         Route::get('/dashboard','App\Http\Controllers\Admin\FrontendController@index');
 
+        //category
         Route::get('categories','App\Http\Controllers\Admin\CategoryController@index');
         Route::get('add-category','App\Http\Controllers\Admin\CategoryController@add');
         Route::post('insert-category','App\Http\Controllers\Admin\CategoryController@insert');
@@ -35,8 +36,11 @@ Route::get('/home', [ProductController::class, 'index']);
         Route::put('update-category/{id}',[CategoryController::class, 'update']);
         Route::get('delete-category/{id}',[CategoryController::class, 'destroy']);
 
+        //product
         Route::get('products', [ProductController::class, 'index']);
         Route::get('add-product', [ProductController::class, 'add']);
         Route::post('insert-product', [ProductController::class, 'insert']);
+        Route::get('edit-product/{id}', [ProductController::class, 'edit']);
+        Route::put('update-product/{id}',[ProductController::class, 'update']);
  });
 

@@ -16,7 +16,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Category</th>
                         <th>Description</th>
+                        <th>Original Price</th>
+                        <th>Selling Price</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
@@ -27,13 +30,16 @@
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->name}}</td>
+                            <td>{{$item->category->name}}</td>
                             <td>{{$item->description}}</td>
+                            <td><del class="text-danger"><p class="text-danger">{{$item->original_price}}</p><del></td>
+                            <td>{{$item->selling_price}}</td>
                             <td>
-                               <img src="{{asset('assets/uploads/product/'.$item->image)}}" class="w-25" alt="Image here">
+                                <img src="{{asset('assets/uploads/products/'.$item->image)}}" class="w-25" alt="Image here">
                             </td>
                             <td>
-                                <a href="{{url('edit-prod/'.$item->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-danger">Delete</a>
+                                <a href="{{url('edit-product/'.$item->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{url('delete-product/'.$item->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
 
