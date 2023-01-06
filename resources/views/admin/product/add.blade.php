@@ -25,6 +25,10 @@
                     <label for="">Name</label>
                     <input type="text" class="form-control" name="name">
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">Slug</label>
+                    <input type="text" class="form-control" name="slug">
+                </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Small Description</label>
                     <textarea name="small_description" rows="3" class="form-control"></textarea>

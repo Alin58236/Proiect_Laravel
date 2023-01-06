@@ -17,6 +17,10 @@
                     <label for="">Name</label>
                     <input type="text" class="form-control" value="{{$products->name}}" name="name">
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">Slug</label>
+                    <input type="text" class="form-control" value="{{$products->slug}}" name="slug">
+                </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Small Description</label>
                     <textarea name="small_description" rows="3"  class="form-control">{{$products->small_description}}</textarea>

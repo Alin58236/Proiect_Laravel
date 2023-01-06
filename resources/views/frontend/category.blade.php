@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+<div class="py-3 mb-4 shadow-sm bg-success border-top">
+    <div class="container">
+        <h6 class="mb-0"> Collections </h6>
+    </div>
+</div>
+
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -13,6 +19,7 @@
                     <div class="row">
                     @foreach ($category as $cate)
                         <div class="col-md-3 mb-3">
+                            <a href="{{url('view-category/'.$cate->slug) }}">
                             <div class="card">
                                 <img src="{{asset('assets/uploads/category/'.$cate->image)}}" alt="Category Image">
                                 <div class="card-body">
@@ -21,7 +28,8 @@
                                         {{$cate->description}}    
                                     </p>    
                                 </div>    
-                            </div>    
+                            </div>
+                            </a>    
                         </div>    
                     @endforeach
                     </div>

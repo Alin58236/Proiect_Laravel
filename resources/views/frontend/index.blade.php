@@ -5,7 +5,13 @@
 @endsection
 
 @section('content')
+<div class="py-3 mb-4 shadow-sm bg-success border-top">
+    <div class="container">
+        <h6 class="mb-0"> Collections </h6>
+    </div>
+</div>
     @include('layouts.inc.slider')
+    
     
     <div class="py-5">
         <div class="container">
@@ -43,6 +49,7 @@
                     @foreach ($trending_category as $cate)
 
                         <div class="item">
+                            <a href="{{url('view-category/'.$cate->slug) }}">
                             <div class="card">
                                 <img src="{{ asset('assets/uploads/category/'.$cate->image)}}" alt="Category Image">
                                 <div class="card-body">
@@ -50,6 +57,7 @@
                                     <small >{{$cate->description}}</small> 
                                 </div>
                             </div>
+                        </a>
                         </div>
                 
                     @endforeach
