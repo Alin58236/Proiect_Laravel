@@ -77,6 +77,11 @@
             
             var product_id = $(this).closest('.product_data').find('.prod_id').val();
             var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }); 
 
             $.ajax({
                 method: "POST",
@@ -86,7 +91,7 @@
                     'product_qty': product_qty,
                 },
                 success: function (response) {
-                    
+                    alert(response.status);
                 }
             });
         });
