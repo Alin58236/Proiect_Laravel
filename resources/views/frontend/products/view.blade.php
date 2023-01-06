@@ -14,7 +14,7 @@
 
 
 <div class="container">
-    <div class="card shadow">
+    <div class="card shadow product_data">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 border-right">
@@ -47,16 +47,17 @@
 
                     <div class="row mt-2">
                         <div class="col-md-2">
+                            <input type="hidden" value="{{$products->id}}" class="prod_id">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3">
-                                <span class="input-group-text">-</span>
-                                <input type="text" name="quantity" value="1" class="form-control">
-                                <span class="input-group-text">+</span>
+                                <button class="input-group-text decrement-btn">-</button>
+                                <input type="text" name="quantity" value="1" class="form-control text-center qty-input">
+                                <button class="input-group-text increment-btn">+</button>
                             </div>
                         </div>
                         <div class="col-md-10">
                             <br/>
-                            <button type="button" class="btn btn-primary me-3 float-start">Add To Cart</button>
+                            <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add To Cart</button>
                         </div>
                     </div>
                 </div>
@@ -65,4 +66,55 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+
+    <script>
+
+        $('.addToCartBtn').click(function (e) { 
+            e.preventDefault();
+            
+            var product_id = $(this).closest('.product_data').find('.prod_id').val();
+            var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+
+            $.ajax({
+                method: "POST",
+                url: "/add-to-cart",
+                data: {
+                    'product_id': product_id,
+                    'product_qty': product_qty,
+                },
+                success: function (response) {
+                    
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('.increment-btn').click(function (e){
+                e.preventDefault();
+            
+                var inc_value = $('.qty-input').val();
+                var value=parseInt(inc_value, 10);
+                value= isNaN(value) ? 0 :value;
+                if(value < 10){
+                    value++;
+                    $('.qty-input').val(value);
+                }
+            });
+            $('.decrement-btn').click(function (e){
+                e.preventDefault();
+            
+                var dec_value = $('.qty-input').val();
+                var value=parseInt(dec_value, 0);
+                value= isNaN(value) ? 0 :value;
+                if(value > 1){
+                    value--;
+                    $('.qty-input').val(value);
+                }
+            });
+        });
+    </script>
+    
 @endsection
