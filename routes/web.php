@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,5 +55,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('edit-product/{id}', [ProductController::class, 'edit']);
         Route::put('update-product/{id}',[ProductController::class, 'update']);
         Route::get('delete-product/{id}', [ProductController::class, 'destroy']);
+
+
+        
  });
 

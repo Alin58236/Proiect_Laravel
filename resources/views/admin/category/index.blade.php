@@ -6,7 +6,7 @@
 <a href ="{{url('add-category')}}" style="hover:pointer;"><button class="btn btn-block">+ Add Category</button></a>
 
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-info">
             <h1>Category Page</h1>
             <hr>
         </div>

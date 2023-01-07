@@ -6,7 +6,7 @@
 <a href ="{{url('add-product')}}" style="hover:pointer;"><button class="btn btn-block">+ Add product</button></a>
 
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-info">
             <h1>Product Page</h1>
             <hr>
         </div>
