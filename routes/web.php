@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +28,12 @@ Auth::routes();
 Route::get('/home', [FrontendController::class, 'index']);
 Route::post('add-to-cart', [CartController::class,'addProduct']);
 Route::post('delete-cart-item',[CartController::class,'deleteproduct'] );
+Route::post('update-cart',[CartController::class,'updatecart']);
 
 Route::middleware(['auth'])->group(function(){
        Route::get('cart', [CartController::class, 'viewCart']);
+       Route::get('checkout', [CheckoutController::class, 'index']);
+       Route::post('place-order',[CheckoutController::class, 'placeorder']);
 });
 
  Route::middleware(['auth', 'isAdmin'])->group(function(){
