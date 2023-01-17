@@ -39,6 +39,9 @@
 
               @include('layouts.inc.frontnavbar')
 
+              
+
+
                 <div class="content">
                     @yield('content')
                 </div>

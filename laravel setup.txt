@@ -1,0 +1,6 @@
+php artisan serve pentru a porni backend-ul
+
+xampp server si bd pentru a hosta local site-ul si bd
+
+npm run dev pentru a porni vite pe frontend
+
